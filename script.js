@@ -1,9 +1,9 @@
 // typing animation
 
 var typed = new Typed(".typing",{
-    strings:["","Web Developer","Cloud Engineer","Designer"],
+    strings:["Software Developer","Full Stack Developer","Cloud Enthusiast","Backend Developer"],
     typeSpeed:100,
-    BackSpeed:60,
+    backSpeed:60,
     loop:true
 })
 // Aside
@@ -110,6 +110,26 @@ if (contactForm) {
         submitButton.textContent = isLoading ? "Sending..." : "Send";
     };
 
+    const toastContainer = document.querySelector("#toast-container");
+    const showToast = (message, type) => {
+        if (!toastContainer) {
+            return;
+        }
+        const toast = document.createElement("div");
+        toast.className = `toast ${type || ""}`.trim();
+        toast.textContent = message;
+        toastContainer.appendChild(toast);
+
+        requestAnimationFrame(() => {
+            toast.classList.add("show");
+        });
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+            toast.addEventListener("transitionend", () => toast.remove(), { once: true });
+        }, 3000);
+    };
+
     const showFeedback = (message, type) => {
         if (!feedback) {
             return;
@@ -118,6 +138,7 @@ if (contactForm) {
         feedback.classList.remove("success", "error");
         if (type) {
             feedback.classList.add(type);
+            showToast(message, type);
         }
     };
 
