@@ -11,20 +11,15 @@ window.addEventListener("scroll",()=>{
     }
 })
 /*---------theme colors--------*/  
-const alternateStyles = document.querySelector(".alternate-style");
-function setActiveStyle(color)
-{
-    alternateStyles.forEach((style) => {
-        if(color === style.getAttribute("title"))
-        {
-            style.removeAttribute("disabled");
+const themeColorButtons = document.querySelectorAll(".style-switcher .colors span");
+themeColorButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const selectedColor = button.getAttribute("data-color");
+        if (selectedColor) {
+            document.documentElement.style.setProperty("--skin-color", selectedColor);
         }
-        else
-        {
-            style.setAttribute("disabled","true");
-        }
-    })
-}
+    });
+});
 /*---------theme light and dark mode--------*/  
 const dayNight = document.querySelector(".day-night");
 dayNight.addEventListener("click",() =>{

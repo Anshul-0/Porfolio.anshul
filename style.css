@@ -3,12 +3,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root{
+    --skin-color: #ec1839;
     --bg-black-900:#f2f2fc;
     --bg-black-100:#fdf9ff;
     --bg-black-50:#e8dfec;
     --text-black-900:#302e4d;
     --text-black-700:#504e70;
 
+}
+/* Smooth theme transitions for accent-driven styles */
+.btn,
+.section-title h2::before,
+.section-title h2::after,
+.aside .logo a::before,
+.aside .logo a::after,
+.aside .nav li a.active,
+.aside .nav-toggler span,
+.aside .nav-toggler span::before,
+.aside .nav-toggler span::after,
+h3.hello span,
+.typing,
+.home-img::before,
+.home-img::after,
+.about .about-content .about-text h3 span,
+.about .about-content .skills .skill-item .progress .progress-in,
+.about .about-content .timeline .timeline-item::before,
+.about .about-content .timeline .circle-dot,
+.service .service-item .service-item-inner .icon,
+.service .service-item .service-item-inner .icon .fa,
+.service .service-item .service-item-inner:hover .icon,
+.contact-title,
+.contact .contact-info-item .icon .fa{
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 body.dark{
     
@@ -375,8 +401,8 @@ h3.my-profession{
     color: var(--text-black-700);
 }
 .about .about-content .personal-info{
-    flex: 0 0 60%;
-    max-width: 60%;
+    flex: 0 0 100%;
+    max-width: 100%;
     margin-top: 40px;
 }
 .about .about-content .personal-info .info-item{
@@ -402,47 +428,6 @@ h3.my-profession{
 .about .about-content .personal-info .buttons .btn{
     
     margin-top: 10px;
-}
-.about .about-content .skills{
-    flex: 0 0 40%;
-    max-width: 40%;
-}
-.about .about-content .skills .skill-item{
-    flex: 0 0 100%;
-    max-width: 100%;
-}
-.about .about-content .skills .skill-item h5{
-    line-height: 40px;
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--text-black-900);
-    text-transform: capitalize;
-}
-.about .about-content .skills .skill-item .progress{
-    background-color: var(--bg-black-50);
-    height: 7px;
-    border-radius: 4px;
-    width: 100%;
-    position: relative;
-}
-.about .about-content .skills .skill-item {
-    margin-bottom: 25px;
-}
-.about .about-content .skills .skill-item .progress .progress-in{
-    position: relative;
-    left: 0;
-    top: 0;
-    height: 100%;
-    border-radius: 4px;
-    background-color: var(--skin-color);
-}
-.about .about-content .skills .skill-item .skill-percent{
-    position: absolute;
-    right: 0;
-    color: var(--text-black-900);
-    top: -40px;
-    font-weight: 400;
-    line-height: 40px;
 }
 .about .about-content .education ,
 .about .about-content .experience
@@ -495,13 +480,15 @@ h3.my-profession{
     background-color: var(--skin-color);
 
 }
-.about .about-content .timeline .timeline-date{
+.about .about-content .timeline .timeline-date,
+.about .about-content .timeline .timelinw-date{
     font-weight: 400;
     font-size: 14px;
     margin-bottom: 12px;
     color: var(--text-black-700);
 }
-.about .about-content .timeline .timeline-date .fa{
+.about .about-content .timeline .timeline-date .fa,
+.about .about-content .timeline .timelinw-date .fa{
     margin-right: 5px;
 
 }
@@ -678,6 +665,22 @@ h3.my-profession{
 .contact .contact-form .btn{
     height: 50px;
     padding: 0 50px;
+}
+.contact .contact-form .form-feedback{
+    min-height: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--text-black-700);
+}
+.contact .contact-form .form-feedback.success{
+    color: var(--skin-color);
+}
+.contact .contact-form .form-feedback.error{
+    color: var(--skin-color);
+}
+.contact .contact-form .btn.is-loading{
+    opacity: 0.8;
+    pointer-events: none;
 }
 @media(max-width:1199px){
     .section .container{
